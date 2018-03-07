@@ -1,0 +1,6 @@
+Its a ionic3 project using angular4
+For running this app follow the steps....
+ step1 :ionic start myApp blank --type=ionic1
+ step2 :cd myApp
+ step3 :ionic serve
+ 
