@@ -1,0 +1,97 @@
+
+<ion-content padding>
+  <div class="main-div">
+    
+    <div id="banner">
+      <img alt="BCBS MA Member Portal Home Link" class="transparentPNG" src="https://www.bluecrossma.com/mpTheme-MemberCentral/themes/html/MemberCentral/./memberCentralImages/bcbsma-logo.png"
+        border="none">
+      <img alt="BCBS MA Member Portal Home Link" class="transparentPNG" src="https://www.bluecrossma.com/mpTheme-MemberCentral/themes/html/MemberCentral/./memberCentralImages/myblue-logo.png"
+        border="none">
+
+    </div>
+    <div>
+      <h4>Create Account</h4>
+      <section>We'll send a text verification.Message and data rate may apply </section>
+    </div>
+    <div>
+      <form [formGroup]="credentialsForm">
+
+        <ion-item>
+          <ion-label floating>Email</ion-label>
+          <ion-input [formControl]="credentialsForm.controls['email']" type="email"></ion-input>
+
+        </ion-item>
+        <div *ngIf="!credentialsForm.controls.email.valid &&
+                credentialsForm.controls.email.dirty" class="validator-error">
+          Please enter a valid email.
+        </div>
+
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input [formControl]="credentialsForm.controls['password']" type="{{type}}"></ion-input>
+          <button *ngIf="!showPass" ion-button clear color="dark" type="button" item-right (click)="showPassword()" class="showhide">
+          show</button>
+          <button *ngIf="showPass" ion-button clear color="dark" type="button" item-right (click)="showPassword()" class="showhide">
+          hide</button>
+        </ion-item>
+
+        <div *ngIf="credentialsForm.controls.password.hasError('pattern')" class="validator-error">
+          please check password requirements.
+        </div>
+        <div class="password-check">
+          <section>Password requirement</section>
+
+          <ul>
+            <li>at least 8 characters</li>
+            <li>must include number</li>
+            <li>must include uppercase</li>
+            <li>must include a special charecter.
+              <br> ! @ # $ % ^ & * [] ()</li>
+          </ul>
+
+        </div>
+        <div class="check-box">
+          <input type="checkbox" />
+          <section>Yes, i wish to recieve information from Blue Cross Sheild of Massachusetts</section>
+          <br>
+
+        </div>
+        <div>
+          By clicking "continue" I agree to the blue Cross Blue shield of Massachusetts Terms of Use and confidentially
+        </div>
+
+        <ion-row>
+          <ion-col text-center>
+
+            <button ion-button block [disabled]="!credentialsForm.valid" (click)="onSignIn()">
+              Continue
+            </button>
+          </ion-col>
+        </ion-row>
+      </form>
+
+    </div>
+    <div>
+      <div class="div4ForFloat">
+        <img src="https://www.bluecrossma.com/mpTheme-MemberCentral/themes/html/MemberCentral/memberCentralImages/logo-footer.png">
+      </div>
+      <div>
+        <section>Blue Cross Blue Shield of Massachusetts is an Independent Licensee of the Blue Cross and Blue Shield Association.</section>
+        <section>® Registered Marks of the Blue Cross and Blue Shield Association.</section>
+        <section>© 2018 Blue Cross and Blue Shield of Massachusetts, Inc., and Blue Cross and Blue Shield of Massachusetts HMO Blue,
+          Inc.</section>
+        <section>101 Huntington Avenue, Suite 1300, Boston, MA 02199-7611 |
+          <strong>800-262-BLUE (2583)</strong>
+        </section>
+
+        <section>
+          Terms of Use, Privacy & Security
+          <br> Accessibility
+          <br> Nondiscrimination & Translation Resources
+        </section>
+      </div>
+
+    </div>
+  </div>
+
+</ion-content>
